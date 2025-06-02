@@ -184,3 +184,28 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+// Loading screen functionality with 3-second minimum duration
+document.addEventListener('DOMContentLoaded', function() {
+    const loadStartTime = Date.now();
+    const minimumLoadTime = 2000; // 3 seconds in milliseconds
+    const loadingScreen = document.querySelector('.loading-screen');
+    
+    function hideLoadingScreen() {
+        const elapsed = Date.now() - loadStartTime;
+        const remainingTime = Math.max(0, minimumLoadTime - elapsed);
+        
+        setTimeout(function() {
+            loadingScreen.style.opacity = '0';
+            setTimeout(function() {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, remainingTime);
+    }
+    
+    // Wait for both DOM content and all resources to load
+    window.addEventListener('load', hideLoadingScreen);
+    
+    // Fallback in case load event doesn't fire
+    setTimeout(hideLoadingScreen, minimumLoadTime + 1000);
+});
