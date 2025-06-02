@@ -16,6 +16,11 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 html::-webkit-scrollbar {
   width: 0px;
   background: transparent;
@@ -1634,7 +1639,7 @@ footer {
 }
 
 .latest-items:first-child {
-  margin-top: -20px;
+  margin-top: 10px;
 }
 
 
@@ -1737,13 +1742,10 @@ footer {
   }
   
   .scroll-to-top {
-    display: block !important;
-    z-index: 10000 !important; /* Must be above .searchbar-iframe */
+    right: 8px; /* Fix for mobile */
+    bottom: 9px;
   }
 
-.scroll-to-top {
-  z-index: 10000;
-}
 
   /* Text adjustments */
   .tops1 span, .tops2 span, .tops1, .tops2, .tops2s span, .tops1s span {
@@ -1929,9 +1931,7 @@ footer {
   max-width: 600px;
   z-index: 2;
 }
-}
 
-@media (max-width: 768px) {
   .searchbar-container {
     height: 40px;
     width: 760px;
